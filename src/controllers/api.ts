@@ -42,6 +42,7 @@ export const addToCart = async (req: Request, res: Response) => {
     cartItem.productId = reqBody.productId
     cartItem.quantity = reqBody.quantity
     cartItem.price = reqBody.price
+    cartItem.customization = reqBody.customization
     cartItem.sessionId = reqBody.sessionId
     await appDataSource.manager.save(cartItem)
 
