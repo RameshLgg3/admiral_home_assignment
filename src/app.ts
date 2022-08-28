@@ -24,7 +24,7 @@ app.use(
 /**
  * API routes
  */
-app.get("/api", apiController.getApi);
+app.get("/", apiController.getHome);
 
 app.get("/products", apiController.getProducts);
 
