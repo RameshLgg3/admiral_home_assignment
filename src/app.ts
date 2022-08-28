@@ -28,4 +28,6 @@ app.get("/", apiController.getHome);
 
 app.get("/products", apiController.getProducts);
 
+app.post("/add-to-cart", apiController.addToCart);
+
 export default app;

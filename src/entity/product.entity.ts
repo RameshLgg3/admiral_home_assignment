@@ -9,6 +9,9 @@ export class Product {
     @Column()
     name: string
 
+    @Column({name: 'short_description'})
+    shortDescription: string
+
     @Column({name: 'product_type_id', default: 1})
     productTypeId: number
 
