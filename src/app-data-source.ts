@@ -2,7 +2,7 @@ import { DataSource } from "typeorm"
 import { Product } from "./entity/product.entity"
 import { ProductType } from "./entity/product-type.entity"
 
-export const myDataSource = new DataSource({
+export const appDataSource = new DataSource({
     type: "mysql",
     host: "localhost",
     port: 3306,
