@@ -42,11 +42,18 @@ export const addToCart = async (req: Request, res: Response) => {
     cartItem.productId = reqBody.productId
     cartItem.quantity = reqBody.quantity
     cartItem.price = reqBody.price
-    cartItem.customization = reqBody.customization
+    cartItem.giftWrapping = reqBody.giftWrapping
+    cartItem.packingType = reqBody.packingType
     cartItem.sessionId = reqBody.sessionId
     await appDataSource.manager.save(cartItem)
 
     res.json({"id": cartItem.id});
+};
+
+export const getCart = async (req: Request, res: Response) => {
+    const cartItems = await appDataSource.manager.query("SELECT `cart_items`.*, `products`.`product_type_id` as product_type_id FROM `cart_items` `cart_items` JOIN `products` `products` ON `cart_items`.`product_id` = `products`.`id`");
+
+    res.json(cartItems);
 };
 
 

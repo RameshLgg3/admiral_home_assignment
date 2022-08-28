@@ -14,8 +14,11 @@ export class CartItems {
     @Column({type: 'decimal', precision: 5, scale: 2, default: 0})
     price: number
 
-    @Column({default: 0})
-    customization: number
+    @Column({name:'gift_wrapping', default: 0})
+    giftWrapping: number
+
+    @Column({name:'packing_type'})
+    packingType: string | null
 
     @Column({name:'session_id'})
     sessionId: string
