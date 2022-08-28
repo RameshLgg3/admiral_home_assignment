@@ -43,17 +43,52 @@ export const addToCart = async (req: Request, res: Response) => {
     cartItem.quantity = reqBody.quantity
     cartItem.price = reqBody.price
     cartItem.giftWrapping = reqBody.giftWrapping
-    cartItem.packingType = reqBody.packingType
+    cartItem.wrappingType = reqBody.wrappingType
     cartItem.sessionId = reqBody.sessionId
     await appDataSource.manager.save(cartItem)
 
     res.json({"id": cartItem.id});
 };
 
-export const getCart = async (req: Request, res: Response) => {
-    const cartItems = await appDataSource.manager.query("SELECT `cart_items`.*, `products`.`product_type_id` as product_type_id FROM `cart_items` `cart_items` JOIN `products` `products` ON `cart_items`.`product_id` = `products`.`id`");
+export const getCartSummary = async (req: Request, res: Response) => {
+    const cartItems = await appDataSource.manager.query("SELECT `cart_items`.*, `products`.`name` as productName FROM `cart_items` `cart_items` JOIN `products` `products` ON `cart_items`.`product_id` = `products`.`id`");
 
-    res.json(cartItems);
+    const summary: object[] = [];
+    let grossTotal: number;
+
+    cartItems.forEach((item: any) => {
+        let wrappingCost = 0
+
+        if (item.wrapping_type === 'Standard') {
+            wrappingCost = 5
+        }
+
+        if (item.wrapping_type === 'Premium') {
+            wrappingCost = 20
+        }
+
+        const totalCost = (item.price * item.quantity) + wrappingCost
+
+        summary.push({
+            productName: item.productName,
+            price: item.price,
+            quantity: item.quantity,
+            wrappingCost,
+            totalCost
+        })
+
+        grossTotal = totalCost
+    });
+
+    const tax = (grossTotal * 5/100)
+
+    summary.push({
+        grossTotal,
+        tax,
+        grandTotal: grossTotal + tax
+    })
+
+    res.json(summary);
 };
 
 

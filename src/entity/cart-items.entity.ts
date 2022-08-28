@@ -17,8 +17,8 @@ export class CartItems {
     @Column({name:'gift_wrapping', default: 0})
     giftWrapping: number
 
-    @Column({name:'packing_type'})
-    packingType: string | null
+    @Column({name:'wrapping_type'})
+    wrappingType: string | null
 
     @Column({name:'session_id'})
     sessionId: string
