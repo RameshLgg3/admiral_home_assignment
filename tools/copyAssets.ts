@@ -1,4 +1,2 @@
-import * as shell from "shelljs";
-
-// Copy all the view templates
-shell.cp( "-R", "src/views", "dist/" );
+const exec = require('child_process').exec;
+exec('cp -R src/views dist/');
