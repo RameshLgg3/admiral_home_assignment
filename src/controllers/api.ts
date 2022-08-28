@@ -3,8 +3,7 @@
 import { Response, Request, NextFunction } from "express";
 
 import { Product } from "../entity/product.entity"
-import { ProductType } from "../entity/product-type.entity"
-import { appDataSource } from "../app-data-source"
+import { appDataSource } from "../datasource/app-data-source"
 
 // establish database connection
 appDataSource

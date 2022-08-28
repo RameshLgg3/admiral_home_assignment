@@ -1,6 +1,6 @@
 import { DataSource } from "typeorm"
-import { Product } from "./entity/product.entity"
-import { ProductType } from "./entity/product-type.entity"
+import { Product } from "../entity/product.entity"
+import { ProductType } from "../entity/product-type.entity"
 import dotenv from "dotenv"
 dotenv.config()
 
