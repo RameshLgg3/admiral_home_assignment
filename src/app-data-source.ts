@@ -4,11 +4,11 @@ import { ProductType } from "./entity/product-type.entity"
 
 export const appDataSource = new DataSource({
     type: "mysql",
-    host: "localhost",
+    host: "sql6.freemysqlhosting.net",
     port: 3306,
-    username: "admiral",
-    password: "india",
-    database: "admiralindia",
+    username: "sql6515530",
+    password: "Xwk35P2vTJ",
+    database: "sql6515530",
     entities: [Product, ProductType],
     logging: false,
     synchronize: false,
