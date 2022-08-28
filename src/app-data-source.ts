@@ -1,14 +1,16 @@
 import { DataSource } from "typeorm"
 import { Product } from "./entity/product.entity"
 import { ProductType } from "./entity/product-type.entity"
+import dotenv from "dotenv"
+dotenv.config()
 
 export const appDataSource = new DataSource({
     type: "mysql",
-    host: "sql6.freemysqlhosting.net",
+    host: process.env.DB_HOST_DEV,
     port: 3306,
-    username: "sql6515530",
-    password: "Xwk35P2vTJ",
-    database: "sql6515530",
+    username: process.env.DB_USER_DEV,
+    password: process.env.DB_PASSWORD_DEV,
+    database: process.env.DB_DATABASE_DEV,
     entities: [Product, ProductType],
     logging: false,
     synchronize: false,
