@@ -1,5 +1,5 @@
 Add new product (physical):
-curl --location --request POST 'http://localhost:3000/add-product' \
+curl --location --request POST 'https://hometestadmiral.herokuapp.com//add-product' \
 --header 'Content-Type: application/json' \
 --data-raw '{
     "name": "New product",
@@ -10,7 +10,7 @@ curl --location --request POST 'http://localhost:3000/add-product' \
 }'
 
 Add new product (virtual):
-curl --location --request POST 'http://localhost:3000/add-product' \
+curl --location --request POST 'https://hometestadmiral.herokuapp.com/add-product' \
 --header 'Content-Type: application/json' \
 --data-raw '{
     "name": "New product - Virtual",
@@ -20,7 +20,7 @@ curl --location --request POST 'http://localhost:3000/add-product' \
 }'
 
 Add product to cart - with customization (physical product)
-curl --location --request POST 'http://localhost:3000/add-to-cart' \
+curl --location --request POST 'https://hometestadmiral.herokuapp.com/add-to-cart' \
 --header 'Content-Type: application/json' \
 --data-raw '{
     "productId": 2,
@@ -31,7 +31,7 @@ curl --location --request POST 'http://localhost:3000/add-to-cart' \
 }'
 
 Add product to cart - without customization (virtual product)
-curl --location --request POST 'http://localhost:3000/add-to-cart' \
+curl --location --request POST 'https://hometestadmiral.herokuapp.com/add-to-cart' \
 --header 'Content-Type: application/json' \
 --data-raw '{
     "productId": 5,
@@ -41,9 +41,9 @@ curl --location --request POST 'http://localhost:3000/add-to-cart' \
 }'
 
 Product listing
-curl --location --request GET 'http://localhost:3000/products' \
+curl --location --request GET 'https://hometestadmiral.herokuapp.com/products' \
 --data-raw ''
 
 Cart summary
-curl --location --request GET 'http://localhost:3000/cart-summary' \
+curl --location --request GET 'https://hometestadmiral.herokuapp.com/cart-summary' \
 --data-raw ''
