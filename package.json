@@ -28,6 +28,7 @@
     "express": "^4.18.1",
     "mysql": "^2.18.1",
     "reflect-metadata": "^0.1.13",
+    "shell-quote": "^1.7.3",
     "typeorm": "^0.3.8"
   },
   "devDependencies": {
