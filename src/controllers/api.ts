@@ -23,15 +23,31 @@ appDataSource
  * @route GET /api
  */
 
- export const getHome = (req: Request, res: Response) => {
+export const getHome = (req: Request, res: Response) => {
     res.json({
         "name" : "Admiral Home Assignment - NodeJs Backend",
         "author": "Ramesh Kolamala"
     });
 };
 
+export const addProduct = async (req: Request, res: Response) => {
+    const reqBody = req.body
+
+    const product = new Product()
+    product.name = reqBody.name
+    product.shortDescription = reqBody.shortDescription
+    product.productTypeId = reqBody.productTypeId
+    product.price = reqBody.price
+    product.minimumQuantiry = reqBody.minimumQuantiry
+
+    await appDataSource.manager.save(product)
+
+    res.json({"id": product.id});
+};
+
 export const getProducts = async (req: Request, res: Response) => {
     const products = await appDataSource.getRepository(Product).find()
+
     res.json(products);
 };
 
@@ -42,9 +58,9 @@ export const addToCart = async (req: Request, res: Response) => {
     cartItem.productId = reqBody.productId
     cartItem.quantity = reqBody.quantity
     cartItem.price = reqBody.price
-    cartItem.giftWrapping = reqBody.giftWrapping
     cartItem.wrappingType = reqBody.wrappingType
     cartItem.sessionId = reqBody.sessionId
+
     await appDataSource.manager.save(cartItem)
 
     res.json({"id": cartItem.id});
@@ -54,7 +70,7 @@ export const getCartSummary = async (req: Request, res: Response) => {
     const cartItems = await appDataSource.manager.query("SELECT `cart_items`.*, `products`.`name` as productName FROM `cart_items` `cart_items` JOIN `products` `products` ON `cart_items`.`product_id` = `products`.`id`");
 
     const summary: object[] = [];
-    let grossTotal: number;
+    const itemTotal: number[] = [];
 
     cartItems.forEach((item: any) => {
         let wrappingCost = 0
@@ -77,8 +93,10 @@ export const getCartSummary = async (req: Request, res: Response) => {
             totalCost
         })
 
-        grossTotal = totalCost
+        itemTotal.push(totalCost)
     });
+
+    const grossTotal = itemTotal.reduce((a, b) => a + b , 0);
 
     const tax = (grossTotal * 5/100)
 

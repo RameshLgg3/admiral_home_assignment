@@ -14,9 +14,6 @@ export class CartItems {
     @Column({type: 'decimal', precision: 5, scale: 2, default: 0})
     price: number
 
-    @Column({name:'gift_wrapping', default: 0})
-    giftWrapping: number
-
     @Column({name:'wrapping_type'})
     wrappingType: string | null
 

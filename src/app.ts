@@ -24,12 +24,29 @@ app.use(
 /**
  * API routes
  */
+/**
+ * Home
+ */
 app.get("/", apiController.getHome);
 
+/**
+ * Add new product
+ */
+app.post("/add-product", apiController.addProduct);
+
+/**
+ * List all products
+ */
 app.get("/products", apiController.getProducts);
 
+/**
+ * Add item to cart
+ */
 app.post("/add-to-cart", apiController.addToCart);
 
+/**
+ * Get cart summary
+ */
 app.get("/cart-summary", apiController.getCartSummary);
 
 export default app;
