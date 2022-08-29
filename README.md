@@ -1,7 +1,7 @@
 # admiral_home_assignment
 NodeJs Backend Developer
 
-Steps to run the application
+Steps to run the application in local
 
 1. npm install
 2. npm run dev
@@ -11,6 +11,7 @@ Steps to run the application
 Live Api:
 
 Add new product (physical):
+
 curl --location --request POST 'https://hometestadmiral.herokuapp.com/add-product' \
 --header 'Content-Type: application/json' \
 --data-raw '{
@@ -22,6 +23,7 @@ curl --location --request POST 'https://hometestadmiral.herokuapp.com/add-produc
 }'
 
 Add new product (virtual):
+
 curl --location --request POST 'https://hometestadmiral.herokuapp.com/add-product' \
 --header 'Content-Type: application/json' \
 --data-raw '{
@@ -31,7 +33,8 @@ curl --location --request POST 'https://hometestadmiral.herokuapp.com/add-produc
     "price": 8
 }'
 
-Add product to cart - with customization (physical product)
+Add product to cart - with customization (physical product):
+
 curl --location --request POST 'https://hometestadmiral.herokuapp.com/add-to-cart' \
 --header 'Content-Type: application/json' \
 --data-raw '{
@@ -42,7 +45,8 @@ curl --location --request POST 'https://hometestadmiral.herokuapp.com/add-to-car
     "sessionId": "fjfufjfufjfjj"
 }'
 
-Add product to cart - without customization (virtual product)
+Add product to cart - without customization (virtual product):
+
 curl --location --request POST 'https://hometestadmiral.herokuapp.com/add-to-cart' \
 --header 'Content-Type: application/json' \
 --data-raw '{
@@ -53,10 +57,12 @@ curl --location --request POST 'https://hometestadmiral.herokuapp.com/add-to-car
 }'
 
 Product listing
+
 curl --location --request GET 'https://hometestadmiral.herokuapp.com/products' \
 --data-raw ''
 
 Cart summary
+
 curl --location --request GET 'https://hometestadmiral.herokuapp.com/cart-summary' \
 --data-raw ''
 
