@@ -33,7 +33,7 @@ CREATE TABLE `products` (
   `short_description` varchar(255) NOT NULL,
   `product_type_id` int(1) NOT NULL DEFAULT 1,
   `price` decimal(5,2) NOT NULL DEFAULT 0.00,
-  `minimum_quantiry` int(2) NOT NULL DEFAULT 0,
+  `minimum_quantity` int(2) NOT NULL DEFAULT 0,
   `productTypeId` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -41,7 +41,7 @@ CREATE TABLE `products` (
 -- Dumping data for table `products`
 --
 
-INSERT INTO `products` (`id`, `name`, `short_description`, `product_type_id`, `price`, `minimum_quantiry`, `productTypeId`) VALUES
+INSERT INTO `products` (`id`, `name`, `short_description`, `product_type_id`, `price`, `minimum_quantity`, `productTypeId`) VALUES
 (1, 'Product 1 - Physical', 'short description of the product 1', 1, '5.00', 5, NULL),
 (2, 'Product 2 - Physical', 'short description of the product 2', 1, '13.00', 10, NULL),
 (3, 'Product 3 - Virtual', 'short description of the product 3', 2, '24.00', 0, NULL),

@@ -18,8 +18,8 @@ export class Product {
     @Column({type: 'decimal', precision: 5, scale: 2, default: 0})
     price: number
 
-    @Column({name: 'minimum_quantiry', default: 0})
-    minimumQuantiry: number
+    @Column({name: 'minimum_quantity', default: 0})
+    minimumQuantity: number
 
     @ManyToOne(() => ProductType, (productType) => productType.id)
     productType: ProductType

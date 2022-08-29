@@ -38,7 +38,7 @@ export const addProduct = async (req: Request, res: Response) => {
     product.shortDescription = reqBody.shortDescription
     product.productTypeId = reqBody.productTypeId
     product.price = reqBody.price
-    product.minimumQuantiry = reqBody.minimumQuantiry
+    product.minimumQuantity = reqBody.minimumQuantity
 
     await appDataSource.manager.save(product)
 

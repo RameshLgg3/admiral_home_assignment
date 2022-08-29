@@ -22,7 +22,7 @@ curl --location --request POST 'https://hometestadmiral.herokuapp.com/add-produc
     "shortDescription": "short description of the product",
     "productTypeId": 1,
     "price": 8,
-    "minimumQuantiry": 5
+    "minimumQuantity": 5
 }'
 
 Add new product (virtual):
