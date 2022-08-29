@@ -1,7 +1,10 @@
 {
-  "name": "nodejs-typescript",
+  "name": "admiral-india-backend",
   "version": "1.0.0",
-  "description": "",
+  "engines": {
+    "node": "16.x"
+  },
+  "description": "Admiral India Backend",
   "main": "dist/server.js",
   "scripts": {
     "clean": "rimraf dist/*",
