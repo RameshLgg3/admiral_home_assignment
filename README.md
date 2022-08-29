@@ -11,7 +11,7 @@ Steps to run the application
 Live Api:
 
 Add new product (physical):
-curl --location --request POST 'https://hometestadmiral.herokuapp.com//add-product' \
+curl --location --request POST 'https://hometestadmiral.herokuapp.com/add-product' \
 --header 'Content-Type: application/json' \
 --data-raw '{
     "name": "New product",
