@@ -22,7 +22,7 @@ app.use(
 );
 
 app.use(cors({
-    origin: ['http://localhost:3000', 'https://hometestadmiral.herokuapp.com/products']
+    origin: ['http://localhost:3000', 'https://hometestadmiral.herokuapp.com']
 }));
 
 /**
