@@ -1,5 +1,5 @@
 import express from "express";
-
+import cors from "cors";
 import path from "path";
 // import compression from "compression";  // compresses requests
 import dotenv from "dotenv"
@@ -12,7 +12,7 @@ dotenv.config()
 const app = express();
 
 // Express configuration
-app.set("port", process.env.PORT || 3000);
+app.set("port", process.env.PORT || 3001);
 
 // app.use(compression());
 app.use(express.json());
@@ -20,6 +20,10 @@ app.use(express.json());
 app.use(
     express.static(path.join(__dirname, "public"))
 );
+
+app.use(cors({
+    origin: 'http://localhost:3000'
+}));
 
 /**
  * API routes
