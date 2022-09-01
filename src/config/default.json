@@ -1,0 +1,10 @@
+{
+    "Settings": {
+      "dbConfig": {
+        "host": "localhost",
+        "dbUser": "admiral",
+        "dbPassword": "india",
+        "dbName": "admiralindia"
+      }
+    }
+  }
